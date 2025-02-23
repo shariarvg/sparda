@@ -44,6 +44,7 @@ X = np.random.normal(0, 1, 100)
 Y = np.random.normal(2, 1, 100)
 compare_projections(X, Y, dim=10, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, labels=None)
 ```
+![What I see](https://github.com/shariarvg/sparda/blob/img/recovery.png?raw=true)
 
 How It Works
 PDA finds directions in feature space that maximize differences between two distributions while suppressing variations within each dataset. Unlike traditional methods like PCA or CCA, which focus on variance or correlation, PDA explicitly targets inter-group differences.
