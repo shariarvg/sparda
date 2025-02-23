@@ -43,7 +43,7 @@ def plot_projected_datasets(X, Y, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, label
     
     return best_beta, best_distance
 
-def compare_projections(X1d, Y1d, dim=10, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, labels=None):
+def compare_projections(X1d, Y1d, dim=10, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, add_noise = False, labels=None):
     """
     Takes two univariate datasets, projects them to higher dimensions, and compares original vs relaxed projections.
     
@@ -76,8 +76,12 @@ def compare_projections(X1d, Y1d, dim=10, n_it=50, nu=0.3, T=20, lam=1, gamma=0.
     X_high = np.outer(X1d, projection_vector)  # Shape: (n_samples, dim)
     Y_high = np.outer(Y1d, projection_vector)  # Shape: (n_samples, dim)
     
+    if add_noise:
+        X_high += np.random.normal(0, 1, size = X_high.shape)
+        Y_high += np.random.normal(0,1,size = Y_high.shape)
+
     # Get optimal projection using relax
-    _, beta, distance = relax(X_high, Y_high, n_it=n_it, nu=nu, T=T, lam=lam, gamma=gamma, verbose = False)
+    _, beta, distance, _ = relax(X_high, Y_high, n_it=n_it, nu=nu, T=T, lam=lam, gamma=gamma, verbose = False)
 
     # Project high-dimensional data back to 1D
     X_proj = X_high @ beta
