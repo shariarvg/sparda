@@ -1,4 +1,4 @@
-## Sparda
+# SPARDA (Sparse Differences Analysis)
 Sparda is a Python implementation of Principal Differences Analysis (PDA), based on the paper "Principal Differences Analysis: Interpretable Characterization of Differences between Distributions" by Jonas Mueller. PDA provides a principled way to identify and interpret the key differences between two probability distributions, making it particularly useful for analyzing dataset shifts, domain adaptation, and scientific comparisons.
 
 Features
