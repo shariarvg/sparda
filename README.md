@@ -1,8 +1,4 @@
-That’s awesome! Since your project is based on Principal Differences Analysis (PDA) from Jonas Mueller’s paper, we should structure the README to clearly explain what Sparda does, how it’s different from existing approaches, and how to use it.
-
-Here’s a solid starting point for your README.md:
-
-Sparda
+## Sparda
 Sparda is a Python implementation of Principal Differences Analysis (PDA), based on the paper "Principal Differences Analysis: Interpretable Characterization of Differences between Distributions" by Jonas Mueller. PDA provides a principled way to identify and interpret the key differences between two probability distributions, making it particularly useful for analyzing dataset shifts, domain adaptation, and scientific comparisons.
 
 Features
