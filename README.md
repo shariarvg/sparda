@@ -10,12 +10,11 @@ Simple API for quick experimentation
 Installation
 You can install Sparda by doing the following:
 
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/shariarvg/sparda.git
 cd sparda
-pip install -r requirements.txt
+```
+
 Usage
 Here’s a basic example of how to use Sparda to analyze differences between two datasets:
 
@@ -25,19 +24,25 @@ Edit
 import numpy as np
 from sparda import PrincipalDifferencesAnalysis
 
-# Generate example datasets
+## Generate example datasets
+```python
 X = np.random.normal(0, 1, (100, 10))  # Sample dataset 1
 Y = np.random.normal(1, 1, (100, 10))  # Sample dataset 2 with a shift
-
-# Perform Principal Differences Analysis
+```
+## Perform Principal Differences Analysis
+```
 pda = PrincipalDifferencesAnalysis(n_components=2)
 pda.fit(X, Y)
-
-# Transform data to the PDA space
+```
+## Transform data to the PDA space
+```
 X_transformed, Y_transformed = pda.transform(X, Y)
+```
 
-# Visualize or analyze the results
+## Visualize or analyze the results
+```
 pda.plot_results()
+```
 How It Works
 PDA finds directions in feature space that maximize differences between two distributions while suppressing variations within each dataset. Unlike traditional methods like PCA or CCA, which focus on variance or correlation, PDA explicitly targets inter-group differences.
 
