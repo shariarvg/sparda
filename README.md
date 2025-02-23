@@ -44,7 +44,14 @@ X = np.random.normal(0, 1, 100)
 Y = np.random.normal(2, 1, 100)
 compare_projections(X, Y, dim=10, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, labels=None)
 ```
-![What I see](img/recovery.png?raw=true)
+![Perfect recovery](img/recovery.png?raw=true)
+You can control the number of dimensions that the image is projected into, and also add white noise, and you'll find that recovery becomes worse.
+```python
+X = np.random.normal(0, 1, 100)
+Y = np.random.normal(2, 1, 100)
+compare_projections(X, Y, dim=200, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, labels=None, add_noise = True)
+```
+![Imperfect recovery (amidst noise)](img/recovery_with_noise.png?raw=true)
 
 How It Works
 PDA finds directions in feature space that maximize differences between two distributions while suppressing variations within each dataset. Unlike traditional methods like PCA or CCA, which focus on variance or correlation, PDA explicitly targets inter-group differences.
