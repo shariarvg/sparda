@@ -18,12 +18,6 @@ cd sparda
 Usage
 Here’s a basic example of how to use Sparda to analyze differences between two datasets:
 
-python
-Copy
-Edit
-import numpy as np
-from sparda import PrincipalDifferencesAnalysis
-
 ## Generate example datasets
 ```python
 X = np.random.normal(0, 1, (100, 10))  # Sample dataset 1
@@ -53,21 +47,5 @@ compare_projections(X, Y, dim=200, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, labe
 ```
 ![Imperfect recovery (amidst noise)](img/recovery_with_noise.png?raw=true)
 
-How It Works
-PDA finds directions in feature space that maximize differences between two distributions while suppressing variations within each dataset. Unlike traditional methods like PCA or CCA, which focus on variance or correlation, PDA explicitly targets inter-group differences.
-
-
-
-Key Steps:
-Compute Mean-Centered Covariances for both datasets
-Solve the Generalized Eigenvalue Problem to find directions of maximum difference
-Project Data onto these directions to visualize and quantify the differences
-Applications
-Dataset Shift Analysis: Identify changes in data distributions over time
-Domain Adaptation: Understand differences between source and target domains
-Feature Selection: Identify the most discriminative features
-Scientific Data Analysis: Compare experimental vs. control groups
-References
-Jonas Mueller, "Principal Differences Analysis: Interpretable Characterization of Differences between Distributions," arXiv preprint arXiv:1510.08956, 2015. Paper Link
-Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request if you’d like to improve Sparda.
+## Contact for questions and concerns
+This repo was **not written by the paper's original authors**. I implemented for the purpose of studying interpretable distribution shift within language. If you are confused about the implementation, find an inconsistency with the original paper's algorithms, or generally think something is wrong -- please submit a PR to master or contact me (s v 2 2 6 at duke dot edu).
