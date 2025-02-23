@@ -31,7 +31,7 @@ Y = np.random.normal(1, 1, (100, 10))  # Sample dataset 2 with a shift
 ```
 ## Perform Principal Differences Analysis
 Let's say you want to get the Earth Mover's Distance of the sliced projections of the two datasets
-```
+```python
 B, beta, d, last_improvement_step = relax(X,Y, n_it = 50, nu = 0.3, T = 50, lam = 1, gamma = 0.3, verbose = False)
 ```
 Here, beta is the vector projecting the datasets into one-D space, and d is the wasserstein distance between X @ beta and Y @ beta. 
@@ -39,7 +39,7 @@ Here, beta is the vector projecting the datasets into one-D space, and d is the 
 ## Visualize or analyze the results
 One way to visualize how well this algorithm works is to start with data in R^1, pick a random vector in R^3, and multiply every observation by that point. Then, we can see how well this algorithm recovers the original distribution. The **compare_projections** method allows us to visualize the original 1d distributions vs. the sliced recovered distributions.
 
-```
+```python
 X = np.random.normal(0, 1, 100)
 Y = np.random.normal(2, 1, 100)
 compare_projections(X, Y, dim=10, n_it=50, nu=0.3, T=20, lam=1, gamma=0.3, labels=None)
