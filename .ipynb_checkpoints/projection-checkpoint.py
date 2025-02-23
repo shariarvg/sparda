@@ -2,12 +2,15 @@ import numpy as np
 from qpsolvers import solve_qp
 import time
 
-def projection(B, lam, d, verbose = False):
+def projection(B, lam, d, verbose = True):
     
     ## Because B is initialized to be 0 and only given outer-product (symmetric) updates, it is guaranteed to be Hermitian
-    eigvals, eigvecs = np.linalg.eigh(B)
-    
     start = time.time()
+    eigvals, eigvecs = np.linalg.eigh(B)
+    end = time.time()
+    if verbose:
+        print(f'{end - start} seconds elapsed for eigendecomposition')
+    
     w = solve_qp(
         P=np.eye(B.shape[0]), 
         q=-eigvals, 
